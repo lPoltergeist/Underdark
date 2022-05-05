@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
                 <link rel="preconnect" href="https://fonts.gstatic.com"/>
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet"/> 
 
-                <link rel="shortchut icon" href="favicon.icon" type="image/icon"/>
+                <link rel="shortchut icon" href="favicon.ico" type="image/icon"/>
                 </Head>
                 <body>
                    <Main/>

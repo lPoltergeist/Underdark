@@ -1,17 +1,25 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import Head from "next/head"
+import Link from "next/link";
+
 import Prismic from '@prismicio/client'
 import { RichText } from "prismic-dom";
-
 import { getPrismicClient } from "../../service/prismic";
+
+import ReactPaginate from "react-paginate";
+
 import styles from './styles.module.scss'
-import Link from "next/link";
+import Card from '../../components/postcard/index'
+import { useState } from "react";
+import Footer from "../../components/footer";
+
 
 type Post = {
 slug: string,
 title: string,
 excerpt: string,
-thumbnail: string,
+thumb: string,
+alt: string,
 updatedAt: string,
 };
 
@@ -19,34 +27,41 @@ interface PostsProps {
   posts: Post[],
 }
 
-function Posts({posts}: PostsProps) {
+function Posts({posts}: PostsProps) { 
+ const handlePageClick = (data) => {
+   console.log(data.selected);
+ }
+  
   return(
-      <>
+    <>
+      <div className={styles.post}>
       <Head>
           <title>Posts | Underdark</title>
       </Head>
-
-      <main className={styles.container}>
-        <div className={styles.posts}>    
-        {posts.map(post => (
-          <Link key={post.slug} href={`posts/${post.slug}`}>
- <a>
- <time>{post.updatedAt}</time>
- <strong> {post.title}</strong>
- <p>{post.excerpt}</p>
-</a>
-</Link>
-        ))}
-        </div>
-      </main>
-      </>
-    
+<div className={styles.wrapper}>
+{posts.map(post => ( 
+       <Link key={post.slug} href={`posts/${post.slug}`}>
+         <a>
+       <Card 
+       img={post.thumb}
+       alt={post.alt}
+       time={post.updatedAt}
+       title={post.title}
+       description={post.excerpt}
+  />
+  </a>
+       </Link>
+     ))}
+     
+     </div>
+  </div>
+   </>
   )
 }
 
 export default Posts;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const  getServerSideProps: GetServerSideProps = async () => {
   const prismic = getPrismicClient()
 
   const response = await prismic.query([
@@ -62,6 +77,7 @@ const posts = response.results.map(post => {
     slug: post.uid,
     title: RichText.asText(post.data.title),
     thumb: post.data.thumbnail.url,
+    alt:post.data.thumbnail.alt,
     excerpt: post.data.content.find(content => content.type === 'paragraph')?.text ?? '',
     updatedAt: new Date(post.last_publication_date).toLocaleDateString('pt-BR', {
       day: '2-digit',
