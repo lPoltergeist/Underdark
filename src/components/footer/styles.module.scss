@@ -1,0 +1,53 @@
+.footer {
+    width: 100%;
+    min-height: 160px;
+    background-image: linear-gradient(var(--red-700), rgb(140, 0, 0) );
+    display: flex;
+   
+    .boxs {
+        width: 450px;
+       padding: 5px 20px;
+     
+       h2 {
+           color: #f8f8f8;
+           font-family: "MorganiteBlack";
+       }
+
+       ul li {
+           margin: 10px 0px;
+           list-style: none;
+       }
+
+       ul li a {
+           font-size: 1.1rem;
+           color: #f8f8f8;
+           text-decoration: none;
+           font-family: "MyriadPro";
+       }
+       ul li a:hover{
+           color: #fff;
+       }
+
+       p {
+           margin-top: 10px;
+           font-size: 1.030rem;
+        text-align: justify;
+           font-family: "MyriadPro";
+           line-height: 1.150rem;
+       }
+    }
+    
+}
+
+@media(max-width: 950px) {
+    .footer {
+        flex-direction: column;
+
+        .boxs {
+            width: 100%;
+            text-align: center;
+            padding: 15px 15px;
+        }
+    }
+}
+
