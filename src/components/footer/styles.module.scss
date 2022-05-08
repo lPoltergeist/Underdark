@@ -3,10 +3,11 @@
     min-height: 160px;
     background-image: linear-gradient(var(--red-700), rgb(140, 0, 0) );
     display: flex;
+    justify-content: center;
    
     .boxs {
-        width: 450px;
-       padding: 5px 20px;
+        max-width: 370px;
+        padding: 5px 30px;
      
        h2 {
            color: #f8f8f8;
@@ -14,7 +15,7 @@
        }
 
        ul li {
-           margin: 10px 0px;
+          padding: 10px 0;
            list-style: none;
        }
 
@@ -42,12 +43,12 @@
 @media(max-width: 950px) {
     .footer {
         flex-direction: column;
+        align-items: center;
 
         .boxs {
             width: 100%;
             text-align: center;
-            padding: 15px 15px;
+            padding: 15px 20px;
         }
     }
 }
-
