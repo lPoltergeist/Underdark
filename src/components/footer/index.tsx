@@ -7,6 +7,7 @@ function Footer(partner) {
   return (
     <>
    <footer className={styles.footer}>
+     
      <div className={styles.boxs}>
     <h2>Atalhos</h2>
     <ul>
@@ -30,7 +31,6 @@ function Footer(partner) {
           Planejamos manter o site em constante evolução, para trazer matérias de melhor qualidade e novas features. 
          </p>
           </div>
-  
    </footer>
    
    </>
