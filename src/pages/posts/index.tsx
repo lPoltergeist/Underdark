@@ -1,6 +1,7 @@
 import { GetServerSideProps} from "next";
 import Head from "next/head"
 import Link from "next/link";
+import Script from "next/script";
 
 import Prismic from '@prismicio/client'
 import { RichText } from "prismic-dom";
@@ -31,6 +32,9 @@ function Posts({posts}: PostsProps) {
   
   return(
     <>
+    <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7095173623764847"/>
+
+
       <div className={styles.post}>
       <Head>
           <title>Posts | Underdark</title>

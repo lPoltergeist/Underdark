@@ -3,6 +3,7 @@ import  Link  from "next/link";
 
 import styles from './styles.module.scss';
 
+
 function Footer(partner) {
   return (
     <>
