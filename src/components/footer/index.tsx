@@ -18,7 +18,7 @@ function Footer(partner) {
      </div>
 
      <div className={styles.boxs}>
-     <h2>Colabore com o site</h2>
+     <h2>Colabore</h2>
     <ul>
       <li><Link href="https://www.patreon.com/user?u=73684214&fan_landing=true">Patreon</Link></li>
       <li><Link href="">pix: 16569614746</Link></li>
