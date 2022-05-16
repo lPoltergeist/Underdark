@@ -24,14 +24,6 @@ function Footer(partner) {
       <li><Link href="">pix: 16569614746</Link></li>
     </ul>
        </div>
-
-       <div className={styles.boxs}>
-         <h2>Sobre</h2>
-         <p>
-          Underdark é um site sobre RPG para fãs de RPG. Nosso objetivo é compartilhar nosso gosto com todos que tem interesse no tema. 
-          Planejamos manter o site em constante evolução, para trazer matérias de melhor qualidade e novas features. 
-         </p>
-          </div>
    </footer>
    
    </>
