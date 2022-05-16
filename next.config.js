@@ -3,9 +3,16 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA ({
   nextConfig,
+  pwa: {
+    dest: "public",
+    register: true,
+    skipWaiting: true,
+  },
   images: {
     domains: ['images.prismic.io']
   },
-}
+})

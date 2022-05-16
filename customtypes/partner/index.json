@@ -1,0 +1,32 @@
+{
+  "id": "partner",
+  "label": "partner",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "partner": {
+        "type": "Image",
+        "config": {
+          "label": "Partner Logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "Uid",
+          "placeholder": ""
+        }
+      },
+      "link": {
+        "type": "Text",
+        "config": {
+          "label": "Link",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
