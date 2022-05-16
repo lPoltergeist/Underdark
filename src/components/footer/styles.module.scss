@@ -1,0 +1,48 @@
+.footer {
+    width: 100%;
+    min-height: 130px;
+    background-image: linear-gradient(var(--red-700), rgb(140, 0, 0) );
+    display: flex;
+    justify-content: center;
+   
+    .boxs {
+        max-width: 370px;
+        padding: 5px 40px;
+
+        justify-content: center;
+      
+       h2 {
+           color: #f8f8f8;
+           font-family: "MorganiteBlack";
+       }
+
+       ul li {
+          padding: 10px 0;
+           list-style: none;
+       }
+
+       ul li a {
+           font-size: 1.1rem;
+           color: #f8f8f8;
+           text-decoration: none;
+           font-family: "MyriadPro";
+       }
+       ul li a:hover{
+           color: #fff;
+       }
+    }
+    
+}
+
+@media(max-width: 950px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+
+        .boxs {
+            width: 100%;
+            text-align: center;
+            padding: 15px 20px;
+        }
+    }
+}

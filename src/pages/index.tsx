@@ -34,7 +34,7 @@ export default function Home({product}) {
 <span>Bem vindo, viajante solitário.</span>
 <h1> Conteúdo sobre o mundo do <span>RPG</span> toda semana.</h1>
       </section>
-      
+      <img className={styles.mindflayer} src="/mindflayer.png"/>
     </main>
       </>
   )
