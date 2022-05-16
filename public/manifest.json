@@ -5,7 +5,7 @@
     "scope" : "/",
     "start_url" : "/",
     "name" : "Underdark",
-    "short_name" : "UD",
+    "short_name" : "Underdark",
     "description": "pwa",
     "icons": [
       {
