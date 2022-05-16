@@ -12,6 +12,9 @@
        h2 {
            color: #f8f8f8;
            font-family: "MorganiteBlack";
+               display: flex;
+           justify-content: center;
+           align-items: center;
        }
 
        ul li {
@@ -24,6 +27,10 @@
            color: #f8f8f8;
            text-decoration: none;
            font-family: "MyriadPro";
+           
+            display: flex;
+           justify-content: center;
+           align-items: center;
        }
        ul li a:hover{
            color: #fff;
