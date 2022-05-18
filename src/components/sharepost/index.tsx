@@ -1,43 +1,35 @@
 import React from 'react'
-import { useRouter } from 'next/router';
-import {
-  TwitterShareButton,
-  TwitterIcon,
-  FacebookShareButton,
-  FacebookIcon,
-  PinterestShareButton,
-  PinterestIcon,
-  RedditShareButton,
-  RedditIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-} from 'next-share';
-  
-export default function SharePost(props) {
-  const router = useRouter();
-  console.log({basePath: router.basePath});
+import styles from './styles.module.scss'
 
+import { TwitterShareButton,  WhatsappShareButton, FacebookShareButton, TelegramShareButton} from "next-share";
+import { TwitterLogo, WhatsappLogo, FacebookLogo, TelegramLogo} from "phosphor-react";
+
+function ShareButton(props) {
   return (
-    <div>
-      <h1>Social Share - GeeksforGeeks</h1>
-      <TwitterShareButton
-        url={router.basePath} >
-        <TwitterIcon size={32} round />
-      </TwitterShareButton>
-      <RedditShareButton
-       url={props.url} >
-        <RedditIcon size={32} round />
-      </RedditShareButton>
-      <WhatsappShareButton
-         url={props.url} >
-        <WhatsappIcon size={32} round />
-      </WhatsappShareButton>
-      <LinkedinShareButton
-         url={props.url} >
-        <LinkedinIcon size={32} round />
-      </LinkedinShareButton>
+    <div className={styles.socialMediaLogos}>
+    <TwitterShareButton 
+     url={`underdark.online/posts/${props.slug}`}
+      title={props.title}>
+         <TwitterLogo size={45} color="#31312e" weight="regular" className={styles.logos}/>
+   </TwitterShareButton>
+   <WhatsappShareButton className={styles.logos}
+      url={`underdark.online/posts/${props.slug}`}
+      title={props.title} >
+     <WhatsappLogo size={45} color="#31312e" weight="regular" />
+   </WhatsappShareButton>
+   <FacebookShareButton
+     url={`underdark.online/posts/${props.slug}`}
+      title={props.title}> 
+          <FacebookLogo size={45} color="#31312e" weight="regular" className={styles.logos}/>
+          </FacebookShareButton>
+          <TelegramShareButton
+     url={`underdark.online/posts/${props.slug}`}
+
+      title={props.title}>
+          <TelegramLogo size={45} color="#31312e" weight="regular" className={styles.logos}/>
+          </TelegramShareButton>
     </div>
   )
 }
+
+export default ShareButton
