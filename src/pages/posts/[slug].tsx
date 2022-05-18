@@ -3,10 +3,11 @@ import Head from "next/head";
 import Script from "next/script";
 import { RichText } from "prismic-dom";
 
-import {BsArrowUpCircle} from "react-icons/bs";
-
 import DisqusComments from '../../service/Disqus'
 import { getPrismicClient } from "../../service/prismic";
+
+import { TwitterLogo, WhatsappLogo, FacebookLogo, TelegramLogo} from "phosphor-react";
+import { TwitterShareButton,  WhatsappShareButton, FacebookShareButton, TelegramShareButton} from "next-share";
 
 import styles from './post.module.scss';
 
@@ -23,7 +24,7 @@ type PostProps = {
 }
 
 export default function Post({post}: PostProps) {
-
+ 
     return (
        <>
 
@@ -45,12 +46,38 @@ export default function Post({post}: PostProps) {
               <div className={styles.postContent} 
               dangerouslySetInnerHTML={{ __html: post.content}} />
               
-              <p>{post.author}</p>
+              <p>Autor: {post.author} </p>
+            
+            <div className={styles.socialMediaLogos}>
+       <TwitterShareButton 
+        url={`underdark.online/posts/${post.slug}`}
+         title={post.title}>
+            <TwitterLogo size={45} color="#31312e" weight="regular" className={styles.logos}/>
+      </TwitterShareButton>
+      <WhatsappShareButton className={styles.logos}
+         url={`underdark.online/posts/${post.slug}`}
+         title={post.title} >
+        <WhatsappLogo size={45} color="#31312e" weight="regular" />
+      </WhatsappShareButton>
+      <FacebookShareButton
+        url={`underdark.online/posts/${post.slug}`}
+         title={post.title}> 
+             <FacebookLogo size={45} color="#31312e" weight="regular" className={styles.logos}/>
+             </FacebookShareButton>
+             <TelegramShareButton
+        url={`underdark.online/posts/${post.slug}`}
+
+         title={post.title}>
+             <TelegramLogo size={45} color="#31312e" weight="regular" className={styles.logos}/>
+             </TelegramShareButton>
+       </div>
+               
+            
            </article>
            <DisqusComments post={post.slug} key={post.slug} />
        </main>
-       
-       <a className={styles.arrow} href="#"><BsArrowUpCircle/></a>
+
+     
        </>
     )
 }
@@ -61,7 +88,7 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
     const prismic = getPrismicClient()
 
     const response = await prismic.getByUID('blog-post', String(slug), {})
-    console.log(JSON.stringify(response, null, 2))
+    //console.log(JSON.stringify(response, null, 2))
 
     const post = {
         slug,
@@ -84,4 +111,3 @@ return {
     }
 }
 }
-
