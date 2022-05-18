@@ -4,10 +4,9 @@ import Script from "next/script";
 import { RichText } from "prismic-dom";
 
 import DisqusComments from '../../service/Disqus'
+import ShareButton from "../../components/sharebutton";
 import { getPrismicClient } from "../../service/prismic";
 
-import { TwitterLogo, WhatsappLogo, FacebookLogo, TelegramLogo} from "phosphor-react";
-import { TwitterShareButton,  WhatsappShareButton, FacebookShareButton, TelegramShareButton} from "next-share";
 
 import styles from './post.module.scss';
 
@@ -49,27 +48,7 @@ export default function Post({post}: PostProps) {
               <p>Autor: {post.author} </p>
             
             <div className={styles.socialMediaLogos}>
-       <TwitterShareButton 
-        url={`underdark.online/posts/${post.slug}`}
-         title={post.title}>
-            <TwitterLogo size={45} color="#31312e" weight="regular" className={styles.logos}/>
-      </TwitterShareButton>
-      <WhatsappShareButton className={styles.logos}
-         url={`underdark.online/posts/${post.slug}`}
-         title={post.title} >
-        <WhatsappLogo size={45} color="#31312e" weight="regular" />
-      </WhatsappShareButton>
-      <FacebookShareButton
-        url={`underdark.online/posts/${post.slug}`}
-         title={post.title}> 
-             <FacebookLogo size={45} color="#31312e" weight="regular" className={styles.logos}/>
-             </FacebookShareButton>
-             <TelegramShareButton
-        url={`underdark.online/posts/${post.slug}`}
-
-         title={post.title}>
-             <TelegramLogo size={45} color="#31312e" weight="regular" className={styles.logos}/>
-             </TelegramShareButton>
+      <ShareButton slug={post.slug} title={post.title}/>
        </div>
                
             
