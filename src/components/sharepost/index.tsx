@@ -4,7 +4,12 @@ import styles from './styles.module.scss'
 import { TwitterShareButton,  WhatsappShareButton, FacebookShareButton, TelegramShareButton} from "next-share";
 import { TwitterLogo, WhatsappLogo, FacebookLogo, TelegramLogo} from "phosphor-react";
 
-function ShareButton(props) {
+type Share = {
+slug: string,
+title: string,
+}
+
+function ShareButton(props: Share) {
   return (
     <div className={styles.socialMediaLogos}>
     <TwitterShareButton 
