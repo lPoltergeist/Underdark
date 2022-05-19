@@ -70,12 +70,16 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
     //console.log(JSON.stringify(response, null, 2))
 
     const post = {
-        slug,
+         slug,
         title: RichText.asText(response.data.title),
         content: RichText.asHtml(response.data.content),
-        author:RichText.asText(response.data.author),
+        content2: response.data.content2? RichText.asHtml(response.data.content2) : "",
+        content3: response.data.content3? RichText.asHtml(response.data?.content3) : "",
         thumbnail: response.data.thumbnail.url,
+        img1: response.data.img1?.url ? response.data.img1.url : "" ,
+        img2:  response.data.img2?.url ? response.data.img2.url : "" ,
         alt: response.data.thumbnail.alt,
+        author:RichText.asText(response.data.author),
         updatedAt: new Date(response.last_publication_date).toLocaleDateString('pt-BR', {
             day: '2-digit',
             month: 'long',
