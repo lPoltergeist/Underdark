@@ -69,7 +69,7 @@ export const  getServerSideProps: GetServerSideProps = async () => {
   const response = await prismic.query([
     Prismic.predicates.at('document.type', 'blog-post')
   ], {
-    fetch: ['title', 'content'],
+   orderings : '[document.first_publication_date desc]',
     pageSize: 100,
   })
 //console.log(JSON.stringify(response, null, 2))
