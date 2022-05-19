@@ -79,7 +79,7 @@ const posts = response.results.map(post => {
     title: RichText.asText(post.data.title),
     thumb: post.data.thumbnail.url,
     alt:post.data.thumbnail.alt,
-    excerpt: post.data.content.find(content => content.type === 'paragraph')?.text.substring(0,50) ?? '',
+    excerpt: post.data.content.find(content => content.type === 'paragraph')?.text.substring(0,60) + '...' ?? '',
     updatedAt: new Date(post.last_publication_date).toLocaleDateString('pt-BR', {
       day: '2-digit',
       month: 'long',
