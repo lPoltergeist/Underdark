@@ -56,7 +56,6 @@ function Posts({posts}: PostsProps) {
      
      </div>
   </div>
-  <Footer/>
    </>
   )
 }
