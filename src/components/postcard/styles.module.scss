@@ -42,14 +42,7 @@
         margin: 7px 0 0 5px;
         padding: 5px;
         color: #141412;
-        
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2; /* number of lines to show */
-         line-clamp: 2; 
-        -webkit-box-orient: vertical;
-    }
+           }
 
     &__btn{
         padding: 1rem;
