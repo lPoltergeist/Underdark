@@ -12,11 +12,15 @@ import styles from './post.module.scss';
 
 type PostProps = {
     post: {
-        slug: string,
+       slug: string,
         title: string,
         content: string,
+        content2: string,
+        content3: string,
         author: string,
         thumbnail: string,
+        img2: string,
+        img3: string,
         alt: string,
         updatedAt: string,
     }
@@ -36,7 +40,7 @@ export default function Post({post}: PostProps) {
        <main className={styles.container}>
            <article className={styles.post}>
               
-               <h1>{post.title}</h1>
+              <h1>{post.title}</h1>
 
                {post?.thumbnail && (
                    <img src={post.thumbnail} />
@@ -44,6 +48,22 @@ export default function Post({post}: PostProps) {
                <time>{post.updatedAt}</time>
               <div className={styles.postContent} 
               dangerouslySetInnerHTML={{ __html: post.content}} />
+
+              {post?.img2 && (
+                  <img src={post.img2} />
+              )}
+
+              {post?.content2 && <div className={styles.postContent} 
+              dangerouslySetInnerHTML={{ __html: post.content2}} />
+              }
+
+              {post?.img3 && (
+                  <img src={post.img3} />
+              )}
+
+              {post?.content3 && <div className={styles.postContent} 
+              dangerouslySetInnerHTML={{ __html: post.content3}} />
+              }
               
               <p>Autor: {post.author} </p>
             
