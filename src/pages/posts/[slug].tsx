@@ -2,9 +2,9 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Script from "next/script";
 import { RichText } from "prismic-dom";
+import ShareButton from "../../components/sharebutton";
 
 import DisqusComments from '../../service/Disqus'
-import ShareButton from "../../components/sharebutton";
 import { getPrismicClient } from "../../service/prismic";
 
 
