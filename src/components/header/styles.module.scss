@@ -4,12 +4,14 @@
     width: 100%;
     height: $headerHeight;
     padding: 0 1.5rem;
+    z-index:9999999;
     @include breakpoint(md) {
         padding: 0 3rem;
     }
     transition: 0.3s ease all;
 
     .header {
+        position: fixed;
         overflow: hidden;
         color: #121214;
         margin: 0 auto;

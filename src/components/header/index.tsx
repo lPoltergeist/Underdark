@@ -51,7 +51,7 @@ const handleCloseMenuOnClick = () => {
         <header className={styles.headerContainer}>
                 <div className={styles.header}>
                 <Link href="/posts">
-                <Image className={styles.logoContent} src={logo} alt="/logo"   width='210px' height='200px'/>
+                <Image className={styles.logoContent} src={logo} alt="/Underdark"   width='210px' height='200px'/>
                 </Link>
                 <nav className={`${styles.navContent} ${menuOpen ? styles.isMenu : ""}`}>
                <ul>

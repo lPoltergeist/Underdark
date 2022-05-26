@@ -2,17 +2,20 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Script from "next/script";
 import { RichText } from "prismic-dom";
-import ShareButton from "../../components/sharepost";
+import MostRecentlyPosts from "../../components/MostRecentlyPosts";
+import ShareButton from "../../components/sharebutton";
 
 import DisqusComments from '../../service/Disqus'
 import { getPrismicClient } from "../../service/prismic";
+
+
 
 
 import styles from './post.module.scss';
 
 type PostProps = {
     post: {
-       slug: string,
+        slug: string,
         title: string,
         content: string,
         content2: string,
@@ -40,7 +43,7 @@ export default function Post({post}: PostProps) {
        <main className={styles.container}>
            <article className={styles.post}>
               
-              <h1>{post.title}</h1>
+               <h1>{post.title}</h1>
 
                {post?.thumbnail && (
                    <img src={post.thumbnail} />
@@ -68,15 +71,12 @@ export default function Post({post}: PostProps) {
               <p>Autor: {post.author} </p>
             
             <div className={styles.socialMediaLogos}>
-      <ShareButton slug={post.slug} title={post.title}/>
+                <h2>Compartilhe esse artigo</h2>
+     <ShareButton slug={post.slug} title={post.title}/>
        </div>
-               
-            
            </article>
            <DisqusComments post={post.slug} key={post.slug} />
        </main>
-
-     
        </>
     )
 }
@@ -87,10 +87,10 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
     const prismic = getPrismicClient()
 
     const response = await prismic.getByUID('blog-post', String(slug), {})
-    //console.log(JSON.stringify(response, null, 2))
+    console.log(JSON.stringify(response, null, 2))
 
     const post = {
-         slug,
+        slug,
         title: RichText.asText(response.data.title),
         content: RichText.asHtml(response.data.content),
         content2: response.data.content2? RichText.asHtml(response.data.content2) : "",

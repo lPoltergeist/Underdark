@@ -1,9 +1,11 @@
 .post{
+    
     background: var(--gray-150);
     min-height: 1000px;
 }
 
 .wrapper{
+    
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
     gap: 2rem;

@@ -56,6 +56,7 @@ function Posts({posts}: PostsProps) {
      
      </div>
   </div>
+  <Footer/>
    </>
   )
 }
@@ -66,12 +67,12 @@ export const  getServerSideProps: GetServerSideProps = async () => {
   const prismic = getPrismicClient()
 
   const response = await prismic.query([
-    Prismic.predicates.at('document.type', 'blog-post')
+    Prismic.predicates.any("document.type", ["blog-post", "review"])
   ], {
-   orderings : '[document.first_publication_date desc]',
+    orderings : '[document.first_publication_date desc]',
     pageSize: 100,
   })
-//console.log(JSON.stringify(response, null, 2))
+console.log(response)
 
 const posts = response.results.map(post => {
   return {
@@ -79,8 +80,8 @@ const posts = response.results.map(post => {
     title: RichText.asText(post.data.title),
     thumb: post.data.thumbnail.url,
     alt:post.data.thumbnail.alt,
-    excerpt: post.data.content.find(content => content.type === 'paragraph')?.text.substring(0,60) + '...' ?? '',
-    updatedAt: new Date(post.last_publication_date).toLocaleDateString('pt-BR', {
+    excerpt: post.data.content.find(content => content.type === 'paragraph')?.text.substring(0,50) + '...' ?? '',
+    updatedAt: new Date(post.first_publication_date).toLocaleDateString('pt-BR', {
       day: '2-digit',
       month: 'long',
       year: 'numeric'
