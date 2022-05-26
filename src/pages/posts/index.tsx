@@ -1,98 +1,43 @@
-import { GetServerSideProps} from "next";
-import Head from "next/head"
-import Link from "next/link";
-import Script from "next/script";
+import { GetStaticProps } from 'next';
 
-import Prismic from '@prismicio/client'
-import { RichText } from "prismic-dom";
-import { getPrismicClient } from "../../service/prismic";
+import Head from 'next/head';
 
-import styles from './styles.module.scss'
-import Card from '../../components/postcard/index'
-import Footer from "../../components/footer";
+import styles from './home.module.scss';
 
+// client-side
+// server-side
+// static site generation
 
-type Post = {
-slug: string,
-title: string,
-excerpt: string,
-thumb: string,
-alt: string,
-updatedAt: string,
-};
+// blog
 
-interface PostsProps {
-  posts: Post[],
+// conteúdo (SSG)
+// comentários ( client-side )
+
+interface HomeProps {
+  product: {
+    priceId: string,
+    amount: number,
+  }
 }
 
-function Posts({posts}: PostsProps) { 
- const handlePageClick = (data) => {
-   console.log(data.selected);
- }
-  
-  return(
+export default function Home({product}) {
+
+
+  return (
     <>
-    <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7095173623764847"/>
+    <Head>
+      <title>A Biblia de Underdark</title>
+    </Head>
 
-
-      <div className={styles.post}>
-      <Head>
-          <title>Posts | Underdark</title>
-      </Head>
-<div className={styles.wrapper}>
-{posts.map(post => ( 
-       <Link key={post.slug} href={`posts/${post.slug}`}>
-         <a>
-       <Card 
-       img={post.thumb}
-       alt={post.alt}
-       time={post.updatedAt}
-       title={post.title}
-       description={post.excerpt}
-  />
-  </a>
-       </Link>
-     ))}
-     
-     </div>
-  </div>
-  <Footer/>
-   </>
+    <main className={styles.contentContainer}>
+      <section className={styles.hero}>
+<span>Bem vindo, viajante solitário.</span>
+<h1> Conteúdo sobre o mundo do <span>RPG</span> toda semana.</h1>
+      </section>
+      <img className={styles.mindflayer} src="/mindflayer.png"/>
+    </main>
+      </>
   )
 }
 
-export default Posts;
-
-export const  getServerSideProps: GetServerSideProps = async () => {
-  const prismic = getPrismicClient()
-
-  const response = await prismic.query([
-    Prismic.predicates.any("document.type", ["blog-post", "review"])
-  ], {
-    orderings : '[document.first_publication_date desc]',
-    pageSize: 100,
-  })
-console.log(response)
-
-const posts = response.results.map(post => {
-  return {
-    slug: post.uid,
-    title: RichText.asText(post.data.title),
-    thumb: post.data.thumbnail.url,
-    alt:post.data.thumbnail.alt,
-    excerpt: post.data.content.find(content => content.type === 'paragraph')?.text.substring(0,50) + '...' ?? '',
-    updatedAt: new Date(post.first_publication_date).toLocaleDateString('pt-BR', {
-      day: '2-digit',
-      month: 'long',
-      year: 'numeric'
-    })
-  }
-})
-
-//sempre que possível, formatar os dados logo após consumir a API.
-
-  return {
-    props: {posts}
-  }
-}
-
+//export const getStaticProps: GetStaticProps = async() => {}
