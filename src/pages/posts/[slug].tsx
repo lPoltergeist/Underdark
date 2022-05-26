@@ -19,8 +19,8 @@ type PostProps = {
         content3: string,
         author: string,
         thumbnail: string,
+        img1: string,
         img2: string,
-        img3: string,
         alt: string,
         updatedAt: string,
     }
@@ -49,16 +49,16 @@ export default function Post({post}: PostProps) {
               <div className={styles.postContent} 
               dangerouslySetInnerHTML={{ __html: post.content}} />
 
-              {post?.img2 && (
-                  <img src={post.img2} />
+              {post?.img1 && (
+                  <img src={post.img1} />
               )}
 
               {post?.content2 && <div className={styles.postContent} 
               dangerouslySetInnerHTML={{ __html: post.content2}} />
               }
 
-              {post?.img3 && (
-                  <img src={post.img3} />
+              {post?.img2 && (
+                  <img src={post.img2} />
               )}
 
               {post?.content3 && <div className={styles.postContent} 
