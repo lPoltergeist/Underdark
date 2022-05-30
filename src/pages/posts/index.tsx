@@ -1,17 +1,23 @@
-import { GetStaticProps } from "next";
+import { GetServerSideProps} from "next";
 import Head from "next/head"
+import Link from "next/link";
+import Script from "next/script";
+
 import Prismic from '@prismicio/client'
 import { RichText } from "prismic-dom";
-
 import { getPrismicClient } from "../../service/prismic";
+
 import styles from './styles.module.scss'
-import Link from "next/link";
+import Card from '../../components/postcard/index'
+import Footer from "../../components/footer";
+
 
 type Post = {
 slug: string,
 title: string,
 excerpt: string,
-thumbnail: string,
+thumb: string,
+alt: string,
 updatedAt: string,
 };
 
@@ -19,51 +25,63 @@ interface PostsProps {
   posts: Post[],
 }
 
-function Posts({posts}: PostsProps) {
+function Posts({posts}: PostsProps) { 
+ const handlePageClick = (data) => {
+   console.log(data.selected);
+ }
+  
   return(
-      <>
+    <>
+    <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7095173623764847"/>
+
+
+      <div className={styles.post}>
       <Head>
           <title>Posts | Underdark</title>
       </Head>
-
-      <main className={styles.container}>
-        <div className={styles.posts}>    
-        {posts.map(post => (
-          <Link key={post.slug} href={`posts/${post.slug}`}>
- <a>
- <time>{post.updatedAt}</time>
- <strong> {post.title}</strong>
- <p>{post.excerpt}</p>
-</a>
-</Link>
-        ))}
-        </div>
-      </main>
-      </>
-    
+<div className={styles.wrapper}>
+{posts.map(post => ( 
+       <Link key={post.slug} href={`posts/${post.slug}`}>
+         <a>
+       <Card 
+       img={post.thumb}
+       alt={post.alt}
+       time={post.updatedAt}
+       title={post.title}
+       description={post.excerpt}
+  />
+  </a>
+       </Link>
+     ))}
+     
+     </div>
+  </div>
+  <Footer/>
+   </>
   )
 }
 
 export default Posts;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const  getServerSideProps: GetServerSideProps = async () => {
   const prismic = getPrismicClient()
 
   const response = await prismic.query([
-    Prismic.predicates.at('document.type', 'blog-post')
+    Prismic.predicates.any("document.type", ["blog-post", "review"])
   ], {
-    fetch: ['title', 'content'],
+    orderings : '[document.first_publication_date desc]',
     pageSize: 100,
   })
-//console.log(JSON.stringify(response, null, 2))
+console.log(response)
 
 const posts = response.results.map(post => {
   return {
     slug: post.uid,
     title: RichText.asText(post.data.title),
     thumb: post.data.thumbnail.url,
-    excerpt: post.data.content.find(content => content.type === 'paragraph')?.text ?? '',
-    updatedAt: new Date(post.last_publication_date).toLocaleDateString('pt-BR', {
+    alt:post.data.thumbnail.alt,
+    excerpt: post.data.content.find(content => content.type === 'paragraph')?.text.substring(0,50) + '...' ?? '',
+    updatedAt: new Date(post.first_publication_date).toLocaleDateString('pt-BR', {
       day: '2-digit',
       month: 'long',
       year: 'numeric'

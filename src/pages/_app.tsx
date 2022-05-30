@@ -1,14 +1,20 @@
-import { AppProps } from 'next/app'
-import { Header } from '../components/header'
-import '../styles/global.scss'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return( 
-  <>
-  <Header/>
-  <Component {...pageProps} />
-  </>
+import { Header } from '../components/header'
+import Analytics from '../service/googleAnalytics'
+
+import '../styles/global.scss';
+
+const App = ({ Component, pageProps }) => {
+
+  return (
+    <>
+      <Header/>
+      <Component {...pageProps} />
+      <Analytics/>
+    </>
   )
 }
 
-export default MyApp
+export default App
