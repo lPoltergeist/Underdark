@@ -8,6 +8,10 @@
 .post {
     max-width: 850px;
     margin: 5rem auto 0;
+ 
+    span {
+        font-size: 0.9rem;
+    }
 
     img {
         display: block;
@@ -21,6 +25,7 @@
     }
 
     h1 {
+        padding: 10px 0;
         text-align: center;
         font-size: 3.5rem;
         font-family: 'MorganiteBlack';
@@ -52,6 +57,9 @@
            font-size: 1.5rem;
            transition: 500ms;
            font-weight: 600;
+           text-decoration: underline;
+           justify-content: center;
+           display: flex;
          }
          a:hover { 
             color: var(--red-700);
@@ -78,26 +86,24 @@
         text-decoration: underline;
         margin-bottom: 20px;
     }
+
+    .socialMediaLogos {
+        margin: 10px 0;
+        text-align: center;
+      
+         h2 {
+             color: #31312e;
+     text-align: center;
+     border-bottom: #31312e 2px solid;
+     padding: 10px;
+         }
+         
+     }
     
 }
 
 
-.socialMediaLogos {
-   margin: 10px 0;
-   text-align: center;
-   align-items: center;
-   justify-content: center;
- 
 
-
-    h2 {
-        color: #31312e;
-text-align: center;
-border-bottom: #31312e 2px solid;
-padding: 10px;
-    }
-    
-}
 
 
 

@@ -16,6 +16,7 @@ import styles from './post.module.scss';
 type PostProps = {
     post: {
         slug: string,
+        tags: string[],
         title: string,
         content: string,
         content2: string,
@@ -42,7 +43,7 @@ export default function Post({post}: PostProps) {
 
        <main className={styles.container}>
            <article className={styles.post}>
-              
+              <span>tags: {post.tags} </span>
                <h1>{post.title}</h1>
 
                {post?.thumbnail && (
@@ -95,6 +96,7 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
         content: RichText.asHtml(response.data.content),
         content2: response.data.content2? RichText.asHtml(response.data.content2) : "",
         content3: response.data.content3? RichText.asHtml(response.data?.content3) : "",
+        tags: response.tags,
         thumbnail: response.data.thumbnail.url,
         img1: response.data.img1?.url ? response.data.img1.url : "" ,
         img2:  response.data.img2?.url ? response.data.img2.url : "" ,
