@@ -22,6 +22,8 @@ type PostProps = {
         content2: string,
         content3: string,
         author: string,
+        source: string,
+        revision: string,
         thumbnail: string,
         img1: string,
         img2: string,
@@ -70,6 +72,8 @@ export default function Post({post}: PostProps) {
               }
               
               <p>Autor: {post.author} </p>
+              {post?.revision && <p>Revisão: {post.revision}</p>}
+              {post?.source && <p>Fonte: {post.source}</p>}
             
             <div className={styles.socialMediaLogos}>
                 <h2>Compartilhe esse artigo</h2>
@@ -102,6 +106,8 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
         img2:  response.data.img2?.url ? response.data.img2.url : "" ,
         alt: response.data.thumbnail.alt,
         author:RichText.asText(response.data.author),
+        revision: response.data.revision,
+        source: response.data?.source ? response.data.source : "",
         updatedAt: new Date(response.last_publication_date).toLocaleDateString('pt-BR', {
             day: '2-digit',
             month: 'long',
