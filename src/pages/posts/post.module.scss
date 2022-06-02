@@ -9,6 +9,11 @@
     max-width: 850px;
     margin: 5rem auto 0;
  
+    .informationsOnTop {
+        display: flex;
+        justify-content: space-between;
+    }
+
     span {
         font-size: 0.9rem;
     }

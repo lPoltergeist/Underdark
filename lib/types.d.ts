@@ -1,0 +1,3 @@
+interface Views {
+    count: number;
+}

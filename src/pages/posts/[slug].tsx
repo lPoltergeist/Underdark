@@ -1,17 +1,17 @@
+import { useEffect, useState } from 'react';
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Script from "next/script";
 import { RichText } from "prismic-dom";
-import MostRecentlyPosts from "../../components/MostRecentlyPosts";
 import ShareButton from "../../components/sharebutton";
+
+import { Eye } from 'phosphor-react';
 
 import DisqusComments from '../../service/Disqus'
 import { getPrismicClient } from "../../service/prismic";
 
-
-
-
 import styles from './post.module.scss';
+import ViewCounter from '../../components/viewCounter/viewCounter';
 
 type PostProps = {
     post: {
@@ -33,7 +33,6 @@ type PostProps = {
 }
 
 export default function Post({post}: PostProps) {
- 
     return (
        <>
 
@@ -45,8 +44,11 @@ export default function Post({post}: PostProps) {
 
        <main className={styles.container}>
            <article className={styles.post}>
+               <div className={styles.informationsOnTop}>
               <span>tags: {post.tags} </span>
-               <h1>{post.title}</h1>
+              <span><Eye color="#31312e" weight="bold"/> <ViewCounter slug={post.slug}/> </span>
+              </div>
+              <h1>{post.title}</h1>
 
                {post?.thumbnail && (
                    <img src={post.thumbnail} />
@@ -119,6 +121,6 @@ export const getServerSideProps: GetServerSideProps = async ({params}) => {
 return {
     props: {
         post,
-    }
+    },
 }
 }
