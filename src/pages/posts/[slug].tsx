@@ -46,7 +46,6 @@ export default function Post({post}: PostProps) {
            <article className={styles.post}>
                <div className={styles.informationsOnTop}>
               <span>tags: {post.tags} </span>
-              <span><Eye color="#31312e" weight="bold"/> <ViewCounter slug={post.slug}/> </span>
               </div>
               <h1>{post.title}</h1>
 
