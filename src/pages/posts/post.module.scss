@@ -59,12 +59,9 @@
          user-select: none;
 
          a {
-           font-size: 1.5rem;
            transition: 500ms;
            font-weight: 600;
            text-decoration: underline;
-           justify-content: center;
-           display: flex;
          }
          a:hover { 
             color: var(--red-700);
