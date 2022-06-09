@@ -20,9 +20,10 @@ const ViewCounter = ({slug}: Props) => {
 
         registerView();
     }, [slug]);
+
     return(
         <span>{`${
-            (data?.count ?? 0) > 0 ? data.count.toLocaleString() : 0 
+            (data?.count ?? 0) > 0 ? data.count.toLocaleString() : '--' 
         } view(s) `}</span>
     );
 };

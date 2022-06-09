@@ -1,4 +1,6 @@
-import { GetStaticProps } from 'next';
+import { useEffect } from 'react';
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 import Head from 'next/head';
 
@@ -21,7 +23,9 @@ interface HomeProps {
 }
 
 export default function Home({product}) {
-
+  useEffect(() => {
+    Aos.init({duration: 1500});
+  }, []);
 
   return (
     <>
@@ -30,11 +34,11 @@ export default function Home({product}) {
     </Head>
 
     <main className={styles.contentContainer}>
-      <section className={styles.hero}>
+      <section  data-aos="fade-right" className={styles.hero}>
 <span>Bem vindo, viajante solitário.</span>
 <h1> Conteúdo sobre o mundo do <span>RPG</span> toda semana.</h1>
       </section>
-      <img className={styles.mindflayer} src="/mindflayer.png"/>
+      <img data-aos="fade-left" className={styles.mindflayer} src="/mindflayer.png"/>
     </main>
       </>
   )

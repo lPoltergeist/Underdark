@@ -1,62 +1,65 @@
+
+
 .footer {
-    width: 100%;
-    min-height: 100px;
-    background-image: linear-gradient(var(--red-700), rgb(140, 0, 0) );
+width: 100%;
+display: flex;
+margin-top: 10rem;
+border-top: var(--red-700);
+height: 5rem;
+align-items: center;
+justify-content: center;
+background-color: var(--red-700);
+
+.container {
     display: flex;
-    justify-content: center;
-   
-    .boxs {
-        max-width: 370px;
-        padding: 5px 30px;
-     
-       h2 {
-           color: #f8f8f8;
-           font-family: "MorganiteBlack";
-               display: flex;
-           justify-content: center;
-           align-items: center;
-       }
+    align-items: center;
+    justify-content: space-between;
 
-       ul li {
-          padding: 10px 0;
-           list-style: none;
-       }
+    button {
+        background: none;
+        border: none;
+        color: #FFF;
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 1.5rem;
+        transition: 0.5s;
 
-       ul li a {
-           font-size: 1.1rem;
-           color: #f8f8f8;
-           text-decoration: none;
-           font-family: "MyriadPro";
-           
-            display: flex;
-           justify-content: center;
-           align-items: center;
-       }
-       ul li a:hover{
-           color: #fff;
-           text-decoration: underline;
-       }
-
-       p {
-           margin-top: 10px;
-           font-size: 1.030rem;
-        text-align: justify;
-           font-family: "MyriadPro";
-           line-height: 1.150rem;
-       }
-    }
-    
-}
-
-@media(max-width: 950px) {
-    .footer {
-        flex-direction: column;
-        align-items: center;
-
-        .boxs {
-            width: 100%;
-            text-align: center;
-            padding: 15px 20px;
+        &:hover {
+            color: #d7d7d7;
         }
     }
+
+    section {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        svg {
+            width: 2rem;
+            height: 2rem;
+            color: #FFF;
+            transition: 0.5s;
+            cursor: pointer;
+
+            &:hover {
+                color: #d8d8d8;
+            }
+        }
+    }
+
+    @media (max-width: 450px) {
+        button {
+            font-size: 0.9rem;
+        }
+
+         section {
+            gap: 0.5rem;
+            svg {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+
+    }
+}
 }

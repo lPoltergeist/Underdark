@@ -1,33 +1,31 @@
-import React from "react";
-import  Link  from "next/link";
-
 import styles from './styles.module.scss';
+import {BsTwitter} from 'react-icons/bs'
 
+export default function Footer() {
+  function handleRedirect(url: string) {
+      window.open(url);
+  }
+;
+  function handleScrollTop() {
+      window.scroll({
+          top: 0,
+          behavior: 'smooth'
+      })
+  }
 
-function Footer(partner) {
   return (
-    <>
-   <footer className={styles.footer}>
-     
-     <div className={styles.boxs}>
-    <h2>Atalhos</h2>
-    <ul>
-      <li><Link href="/">Home</Link></li>
-      <li><Link href="#">Topo</Link></li>
-    </ul>
-     </div>
+      <footer className={styles.footer}>
+          <div className={styles.container}>
 
-     <div className={styles.boxs}>
-     <h2>Colabore</h2>
-    <ul>
-      <li><Link href="https://www.patreon.com/user?u=73684214&fan_landing=true">Patreon</Link></li>
-      <li><Link href="">pix: 16569614746</Link></li>
-    </ul>
-       </div>
-   </footer>
-   
-   </>
-  );
-}
+              <button type="button" onClick={handleScrollTop}>
+                  voltar ao topo
+              </button>
 
-export default Footer;
+              <section>
+            
+              </section>
+
+          </div>
+      </footer>
+  )
+  };
