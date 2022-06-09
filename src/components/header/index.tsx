@@ -63,7 +63,7 @@ const handleCloseMenuOnClick = () => {
                            </Link>
                    </li>
                    <li>
-                       <Link prefetch href="/posts">
+                       <Link href="/posts">
                            <a onClick={handleCloseMenuOnClick}> 
                            Posts
                            </a>
