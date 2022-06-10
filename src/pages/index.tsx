@@ -31,6 +31,11 @@ export default function Home({product}) {
     <>
     <Head>
       <title>A Biblia de Underdark</title>
+
+      <meta
+          name="description"
+          content="Underdark, um site feito por fãs de RPG para fãs de RPG."
+        />
     </Head>
 
     <main className={styles.contentContainer}>

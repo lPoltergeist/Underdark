@@ -10,6 +10,7 @@ import { getPrismicClient } from "../../service/prismic";
 import styles from './styles.module.scss'
 import Card from '../../components/postcard/index'
 import Footer from "../../components/footer";
+import Feedback from "../../components/feedback";
 
 
 type Post = {
@@ -56,6 +57,7 @@ function Posts({posts}: PostsProps) {
      
      </div>
   </div>
+  <Feedback/>
   <Footer/>
    </>
   )

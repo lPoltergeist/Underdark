@@ -12,6 +12,7 @@ import { getPrismicClient } from "../../service/prismic";
 
 import styles from './post.module.scss';
 import ViewCounter from '../../components/viewCounter/viewCounter';
+import Footer from '../../components/footer';
 
 type PostProps = {
     post: {
@@ -55,13 +56,25 @@ export default function Post({post}: PostProps) {
 
        <Head>
            <title>{post.title} | Underdark</title>
+
+<meta
+name="description"
+content={post.content}
+/>
+<meta property="og:image" content={post.thumbnail} />
+<meta property="og:image:secure_url" content={post.thumbnail} />
+<meta name="twitter:image" content={post.thumbnail} />
+<meta name="twitter:image:src" content={post.thumbnail} />
+<meta
+property="og:description"
+content={post.content}
+/> 
        </Head>
 
        <main className={styles.container}>
            <article className={styles.post}>
                <div className={styles.informationsOnTop}>
               
-              <span><Eye color="#31312e" weight="bold"/> <ViewCounter slug={post.slug}/> </span>
               </div>
               <h1>{post.title}</h1>
 
@@ -154,12 +167,14 @@ export default function Post({post}: PostProps) {
             
             <div className={styles.socialMediaLogos}>
                 <h2>Compartilhe esse artigo</h2>
+                <div className={styles.border}/>
      <ShareButton slug={post.slug} title={post.title}/>
        </div>
        <span>tags: {post.tags} </span>
            </article>
            <DisqusComments post={post.slug} key={post.slug} />
        </main>
+       <Footer/>
        </>
     )
 }

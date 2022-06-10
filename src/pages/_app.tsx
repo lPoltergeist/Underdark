@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
-
+import NextNProgress from 'nextjs-progressbar';
+import { Toaster } from 'react-hot-toast';
 import { Header } from '../components/header'
 import Analytics from '../service/googleAnalytics'
 
@@ -11,6 +10,14 @@ const App = ({ Component, pageProps }) => {
   return (
     <>
       <Header/>
+      <NextNProgress
+      color='var(--red-700)'
+      startPosition={0.3}
+      stopDelayMs={200}
+      height={3}
+      showOnShallow
+      />
+      <Toaster position="bottom-right"/>
       <Component {...pageProps} />
       <Analytics/>
     </>

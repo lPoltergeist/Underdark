@@ -96,8 +96,14 @@
          h2 {
              color: #31312e;
      text-align: center;
-     border-bottom: #31312e 2px solid;
+    
      padding: 10px;
+         }
+         .border{
+            border-bottom: #31312e 1px solid;
+            display: flex;
+            margin: 0 auto;
+            max-width: 300px;
          }
          
      }

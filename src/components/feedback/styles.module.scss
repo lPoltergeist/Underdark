@@ -1,0 +1,128 @@
+.FormContainer {
+    background-color: var(--red-700);
+    text-align: center;
+    
+    h1 {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .FormBox {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin: 0 auto;
+        display: grid;
+        padding: 1rem;
+        width: 70%;
+        height: 100%;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        border-bottom: 1px solid #fff;
+       
+        @media (max-width: 1000px) {
+            margin-top: 1rem;
+            grid-template-columns: 1fr;
+        }
+
+        @media (max-width: 700px) {
+            margin-top: 1rem;
+            grid-template-columns: 1fr;
+        }
+    
+        @media (max-width: 450px) {
+            > button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    
+
+        button {
+            margin-left: 3rem;
+            border: none;
+            padding: 1rem 2.5rem;
+            color: var(--red-700);
+            font-weight: 300;
+            font-size: 1.5rem;
+            border-radius: 0.5rem;
+            background: #f4f4f2;
+            transition: 0.5s;
+            width: fit-content;
+            
+           &:hover {
+               background: #d7d7d7;
+           }
+        }
+    
+        .Input {
+            margin-left: 3rem;
+            height: 3rem;
+    width: 80%;
+    background: #fff;
+    border: 1px solid var(--red-700);
+    padding: 1.7rem 1.5rem;
+    color: black;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    outline:none;
+    transition: 0.5s;
+    
+    &:focus {
+        border-color: #fff};
+    
+    
+    &::placeholder {
+        color: black;
+    }
+    
+    @media (max-width: 1000) {
+        padding: 1.4rem;
+        font-size: 1rem;
+    }
+    
+    @media (max-width: 600px) {
+        width: 350px;
+    }
+
+    
+        }
+        }
+    
+        .TextArea {
+            margin-left: 3rem;
+    height: 4rem;
+    width: 80%;
+    background: #fff;
+    border: var(--red-700);
+    padding: 1.7rem 1.5rem;
+    color: black;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    outline:none;
+    transition: 0.5s;
+    resize: none;
+    
+    
+    
+    &:focus {
+        border-color: #fff;
+    }
+    
+    &::placeholder {
+        color: black;
+    }
+    
+    @media (max-width: 700px) {
+        grid-column: 1;
+    }
+    
+    @media (max-width: 1000) {
+        padding: 1.4rem;
+        font-size: 1rem;
+    }
+    
+    @media (max-width: 600px) {
+        width: 350px;
+    }
+    }
+    }
