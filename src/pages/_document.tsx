@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
                 <meta name='descriptio' content='Underdark, conteúdo sobre RPG escrito por fãs de RPG. ' />
                 
                 <meta property="og:title" content="Underdark, conteúdo sobre RPG escrito por fãs de RPG. " />
-                <meta property="og:description" content="lembrar de botar algo aqui" />
+                <meta property="og:description" content="A Bíblia de Underdark" />
                 <meta property="og:image" content="/logo.png" />
 
                 
