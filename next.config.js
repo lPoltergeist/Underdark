@@ -1,18 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
 }
 
-const withPWA = require("next-pwa");
+module.exports = nextConfig
 
-module.exports = withPWA ({
-  nextConfig,
-  pwa: {
-    dest: "public",
-    register: true,
-    skipWaiting: true,
-  },
-  images: {
-    domains: ['images.prismic.io']
-  },
-})
