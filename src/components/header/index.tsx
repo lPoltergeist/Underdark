@@ -7,7 +7,6 @@ import { MdOutlineClose } from 'react-icons/md'
 import { useState } from 'react'
 import { useEffect } from 'react';
 
-import logo from '../../../public/logo.png'
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -51,7 +50,8 @@ export function Header() {
         <header className={styles.headerContainer}>
             <div className={styles.header}>
                 <Link href="/posts">
-                    <Image className={styles.logoContent} src="/logo.png" alt="/Underdark" width='210px' height='200px' />
+                    <Image className={styles.logoContent} src="/logo.png" alt="/Underdark" width={210}
+                        height={200} />
                 </Link>
                 <nav className={`${styles.navContent} ${menuOpen ? styles.isMenu : ""}`}>
                     <ul>
