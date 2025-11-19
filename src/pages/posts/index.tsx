@@ -22,11 +22,6 @@ interface PostsProps {
 }
 
 function Posts({ posts }: PostsProps) {
-  const handlePageClick = (data) => {
-    console.log(data.selected);
-  }
-
-
 
   return (
     <>
@@ -37,23 +32,23 @@ function Posts({ posts }: PostsProps) {
           <title>Posts | Underdark</title>
         </Head>
         <div className={styles.wrapper}>
-          /* {posts.map(post => (
-          <Link key={post.slug} href={`posts/${post.slug}`}>
-            <a>
-              <Card
-                img={post.thumb}
-                alt={post.alt}
-                time={post.updatedAt}
-                title={post.title}
-                description={post.excerpt}
-              />
-            </a>
-          </Link>
-        ))} */
+          {posts.map(post => (
+            <Link key={post.slug} href={`posts/${post.slug}`}>
+              <a>
+                <Card
+                  img={post.thumb}
+                  alt={post.alt}
+                  time={post.updatedAt}
+                  title={post.title}
+                  description={post.excerpt}
+                />
+              </a>
+            </Link>
+          ))}
 
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

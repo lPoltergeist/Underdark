@@ -12,7 +12,7 @@ function Card(props) {
                     src={props.img}
                     alt={props.alt || ""}
                     className={styles.card__image}
-                    width={270}
+                    width={300}
                     height={160}
                     unoptimized
                 />

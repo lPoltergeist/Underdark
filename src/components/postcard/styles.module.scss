@@ -1,20 +1,21 @@
-.card{
+.card {
     background: #f1f1f1;
     min-height: 420px;
     max-height: 420px;
+    width: 300px;
     margin-top: 2rem;
     margin-bottom: 1rem;
     overflow: hidden;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
     transition: transform 200ms ease-in;
-           
 
-    &__image{
+
+    &__image {
         height: 12rem;
         width: 100%;
         object-fit: cover;
@@ -36,18 +37,15 @@
         color: #141412;
     }
 
-    &__description{
+    &__description {
         font-family: "MyriadPro";
         font-size: 1rem;
         margin: 7px 0 0 5px;
         padding: 5px;
         color: #141412;
-
-       
-     
     }
 
-    &__btn{
+    &__btn {
         padding: 1rem;
         font-family: inherit;
         font-weight: bold;
@@ -56,14 +54,13 @@
         border: 2px solid var(--red-700);
         background: #fff;
         color: var(--red-700)
-
     }
 
     &:hover {
-        transform:scale(1.02);
+        transform: scale(1.02);
     }
 
-    &:hover &__btn{
+    &:hover &__btn {
         background: var(--red-700);
         color: #fff;
     }

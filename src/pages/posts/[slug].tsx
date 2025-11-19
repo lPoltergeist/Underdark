@@ -57,8 +57,6 @@ export default function Post({ post, slug }: any) {
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     const slug = params?.slug as string;
     const post = await getArticle(slug);
-
-    console.log(post)
     return {
         props: {
             post,
